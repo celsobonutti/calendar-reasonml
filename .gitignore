@@ -1,0 +1,14 @@
+bs
+.merlin
+lib/
+*.bs.js
+.bsb.lock
+
+_esy
+.vscode
+
+.tailwind_ppx_cache
+
+node_modules
+.next
+tailwind.css
