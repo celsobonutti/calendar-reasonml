@@ -24,10 +24,9 @@ let make = (~year, ~month) => {
     <CalendarGrid>
       {days
        ->Belt.Array.map(day => {
-           let outOfMonth =
-             Js.Date.getMonth(day) !== float_of_int(month);
+           let outOfMonth = Js.Date.getMonth(day) !== float_of_int(month);
 
-           <CalendarDay outOfMonth day />;
+           <CalendarDay key={Js.Date.toString(day)} outOfMonth day />;
          })
        ->React.array}
     </CalendarGrid>

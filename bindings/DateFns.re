@@ -18,18 +18,18 @@ external startOfWeek: date => date = "default";
 [@bs.module "date-fns/endOfMonth"]
 external endOfMonth: date => date = "default";
 
-[@bs.module "date-fns/endOfWeek"]
-external endOfWeek: date => date = "default";
+[@bs.module "date-fns/endOfWeek"] external endOfWeek: date => date = "default";
 
-[@bs.module "date-fns/isSaturday"]
-external isSaturday: date => bool = "default";  
+[@bs.module "date-fns/isToday"] external isToday: date => bool = "default";
 
-[@bs.module "date-fns/isSunday"]
-external isSunday: date => bool = "default";  
+let isSaturday = date => {
+  Js.Date.getDay(date) == 6.;
+};
 
-[@bs.module "date-fns/isToday"]
-external isToday: date => bool = "default";
+let isSunday = date => {
+  Js.Date.getDay(date) == 0.;
+};
 
-let isWeekend = (date) => {
+let isWeekend = date => {
   isSaturday(date) || isSunday(date);
 };

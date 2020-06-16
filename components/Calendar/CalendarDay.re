@@ -33,7 +33,7 @@ let make = (~day, ~outOfMonth) => {
   <button
     className={Cn.make([
       [%tw
-        "pt-3/4 relative opacity-50 group hover:opacity-100 transition-all duration-200"
+        "pt-3/4 relative opacity-75 group hover:opacity-100 transition-all duration-200"
       ],
       textColor,
       backgroundColor,
