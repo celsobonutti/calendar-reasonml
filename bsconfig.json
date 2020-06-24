@@ -10,15 +10,18 @@
       "subdirs": true
     },
     {
+      "dir": "re_pages"
+    },
+    {
       "dir": "bindings",
       "subdirs": true
     },
     {
-      "dir": "utils",
+      "dir": "src",
       "subdirs": false
     }
   ],
-  "bs-dependencies": ["reason-react", "re-classnames"],
+  "bs-dependencies": ["reason-react", "re-classnames", "decco"],
   "reason": { "react-jsx": 3 },
   "package-specs": [
     {
@@ -28,6 +31,6 @@
   ],
   "suffix": ".bs.js",
   "bsc-flags": ["-bs-super-errors"],
-  "ppx-flags": [["@dylanirlbeck/tailwind-ppx/tailwind-ppx"]],
+  "ppx-flags": [["@dylanirlbeck/tailwind-ppx/tailwind-ppx", "decco/ppx"]],
   "refmt": 3
 }

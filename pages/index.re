@@ -8,9 +8,9 @@ let make = () => {
 
   let increaseMonth = () => {
     setMonth(month =>
-      if (month == 12) {
+      if (month == 11) {
         setYear(year => year + 1);
-        1;
+        0;
       } else {
         month + 1;
       }
@@ -19,9 +19,9 @@ let make = () => {
 
   let decreaseMonth = () => {
     setMonth(month =>
-      if (month == 1) {
+      if (month == 0) {
         setYear(year => year - 1);
-        12;
+        11;
       } else {
         month - 1;
       }
@@ -31,7 +31,7 @@ let make = () => {
   <Layout title="Calendar 2020">
     <div
       className=[%tw
-        "w-full h-screen flex flex-col justify-center items-center sm:p-8 md:p-16"
+        "w-full h-screen flex flex-col justify-start items-center sm:p-8 md:p-16"
       ]>
       <Selector month year onIncrease=increaseMonth onDecrease=decreaseMonth />
       <Calendar month year />

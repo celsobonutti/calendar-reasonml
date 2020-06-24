@@ -22,6 +22,18 @@ external endOfMonth: date => date = "default";
 
 [@bs.module "date-fns/isToday"] external isToday: date => bool = "default";
 
+[@bs.module "date-fns/format"]
+external format: (date, string) => string = "default";
+
+[@bs.module "date-fns/isSameDay"]
+external isSameDay: (date, date) => bool = "default";
+
+[@bs.module "date-fns/parseISO"] external parseISO: string => date = "default";
+
+let formatAsFullDate = date => {
+  format(date, "EEEE, MMM do, yyyy");
+};
+
 let isSaturday = date => {
   Js.Date.getDay(date) == 6.;
 };
@@ -32,4 +44,8 @@ let isSunday = date => {
 
 let isWeekend = date => {
   isSaturday(date) || isSunday(date);
+};
+
+let isBefore = (dateA, dateB) => {
+  Js.Date.getTime(dateA) < Js.Date.getTime(dateB);
 };
