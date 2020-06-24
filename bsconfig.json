@@ -10,9 +10,6 @@
       "subdirs": true
     },
     {
-      "dir": "re_pages"
-    },
-    {
       "dir": "bindings",
       "subdirs": true
     },
@@ -31,6 +28,6 @@
   ],
   "suffix": ".bs.js",
   "bsc-flags": ["-bs-super-errors"],
-  "ppx-flags": [["@dylanirlbeck/tailwind-ppx/tailwind-ppx", "decco/ppx"]],
+  "ppx-flags": [["@dylanirlbeck/tailwind-ppx/tailwind-ppx"], "decco/ppx"],
   "refmt": 3
 }

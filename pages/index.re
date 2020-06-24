@@ -31,7 +31,7 @@ let make = () => {
   <Layout title="Calendar 2020">
     <div
       className=[%tw
-        "w-full h-screen flex flex-col justify-start items-center sm:p-8 md:p-16"
+        "w-full flex flex-col justify-start items-center sm:p-8 md:px-16 md:py-4"
       ]>
       <Selector month year onIncrease=increaseMonth onDecrease=decreaseMonth />
       <Calendar month year />

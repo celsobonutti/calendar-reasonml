@@ -1,18 +1,15 @@
-[@decco]
-type t = {
-  title: string,
-  id: string,
-  datetime: Js.Date.t,
-  color: string,
-};
+open Decco;
 
-type date = Js.Date.t;
+type reminder = Reminder.t;
+
+[@decco]
+type state = list(Reminder.t);
 
 type action =
-  | Add(t)
+  | Add(reminder)
   | Remove(string)
-  | Edit(string, t)
-  | RemoveAllFromDate(date);
+  | Edit(string, reminder)
+  | RemoveAllFromDate(Js.Date.t);
 
 let reducer = (state, action) => {
   let newState =
@@ -22,8 +19,16 @@ let reducer = (state, action) => {
     | Edit(id, reminder) =>
       state->Belt.List.map(el => {el.id == id ? reminder : el})
     | RemoveAllFromDate(date) =>
-      state->Belt.List.keep(el => !DateFns.isSameDay(el.datetime, date))
+      state->Belt.List.keep(el => Date.isSameDay(el.datetime, date))
     };
+
+  let encodedState = newState->state_encode;
+
+  switch (stringFromJson(encodedState)) {
+  | Ok(reminders) =>
+    Dom.Storage.setItem("reminders", reminders, Dom.Storage.localStorage)
+  | Error(_) => ()
+  };
 
   newState;
 };

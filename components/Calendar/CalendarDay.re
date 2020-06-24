@@ -1,6 +1,6 @@
 [@react.component]
 let make = (~day, ~outOfMonth) => {
-  let info = (DateFns.isWeekend(day), outOfMonth, DateFns.isToday(day));
+  let info = (Date.isWeekend(day), outOfMonth, Date.isToday(day));
   let textColor =
     switch (info) {
     | (_, true, _) =>

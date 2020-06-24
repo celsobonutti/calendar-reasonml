@@ -28,7 +28,8 @@ external format: (date, string) => string = "default";
 [@bs.module "date-fns/isSameDay"]
 external isSameDay: (date, date) => bool = "default";
 
-[@bs.module "date-fns/parseISO"] external parseISO: string => date = "default";
+[@bs.module "date-fns/parseISO"]
+external parseISO: string => Js.Date.t = "default";
 
 let formatAsFullDate = date => {
   format(date, "EEEE, MMM do, yyyy");
@@ -49,3 +50,16 @@ let isWeekend = date => {
 let isBefore = (dateA, dateB) => {
   Js.Date.getTime(dateA) < Js.Date.getTime(dateB);
 };
+
+let encoder: Decco.encoder(Js.Date.t) =
+  date => Js.Date.toISOString(date)->Decco.stringToJson;
+
+let decoder: Decco.decoder(Js.Date.t) =
+  json => {
+    switch (Decco.stringFromJson(json)) {
+    | Belt.Result.Ok(v) => parseISO(v)->Ok
+    | Belt.Result.Error(_) as err => err
+    };
+  };
+
+let codec = (encoder, decoder);
