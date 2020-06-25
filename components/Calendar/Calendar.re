@@ -6,7 +6,7 @@ module CalendarGrid = {
 };
 
 [@react.component]
-let make = (~year, ~month) => {
+let make = (~year, ~month, ~onDateClicked, ~reminders=?) => {
   let days = Utils.getDaysForMonth(~year, ~month);
 
   <div className=[%tw "max-w-4xl w-full "]>
@@ -27,7 +27,12 @@ let make = (~year, ~month) => {
          ->Belt.Array.map(day => {
              let outOfMonth = Js.Date.getMonth(day) !== float_of_int(month);
 
-             <CalendarDay key={Js.Date.toString(day)} outOfMonth day />;
+             <CalendarDay
+               key={Js.Date.toString(day)}
+               outOfMonth
+               day
+               onClick={_ => onDateClicked(day)}
+             />;
            })
          ->React.array}
       </CalendarGrid>

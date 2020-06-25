@@ -5,13 +5,7 @@ type reminder = Reminder.t;
 [@decco]
 type state = list(Reminder.t);
 
-type action =
-  | Add(reminder)
-  | Remove(string)
-  | Edit(string, reminder)
-  | RemoveAllFromDate(Js.Date.t);
-
-let reducer = (state, action) => {
+let reducer = (state, action: Reminder.action) => {
   let newState =
     switch (action) {
     | Add(reminder) => [reminder, ...state]
@@ -22,13 +16,20 @@ let reducer = (state, action) => {
       state->Belt.List.keep(el => Date.isSameDay(el.datetime, date))
     };
 
-  let encodedState = newState->state_encode;
-
-  switch (stringFromJson(encodedState)) {
+  switch (newState->state_encode->stringFromJson) {
   | Ok(reminders) =>
     Dom.Storage.setItem("reminders", reminders, Dom.Storage.localStorage)
   | Error(_) => ()
   };
 
   newState;
+};
+
+[@react.component]
+let make = (~children, ~initialState) => {
+  let (state, dispatch) = React.useReducer(reducer, initialState);
+
+  <ReminderContext.Provider value=(state, dispatch)>
+    children
+  </ReminderContext.Provider>;
 };

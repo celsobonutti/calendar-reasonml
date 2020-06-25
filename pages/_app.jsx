@@ -1,7 +1,5 @@
 import "../tailwind.css";
 
-const App = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
-};
+import { make } from "../components/App.bs";
 
-export default App;
+export default make;

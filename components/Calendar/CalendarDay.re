@@ -1,5 +1,5 @@
 [@react.component]
-let make = (~day, ~outOfMonth) => {
+let make = (~day, ~outOfMonth, ~onClick) => {
   let info = (Date.isWeekend(day), outOfMonth, Date.isToday(day));
   let textColor =
     switch (info) {
@@ -37,7 +37,8 @@ let make = (~day, ~outOfMonth) => {
       ],
       textColor,
       backgroundColor,
-    ])}>
+    ])}
+    onClick>
     <div
       className=[%tw
         "absolute w-full h-full p-2 top-0 flex flex-col overflow-x-hidden"
