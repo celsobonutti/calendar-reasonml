@@ -33,7 +33,7 @@ let make = (~day, ~outOfMonth, ~onClick) => {
   <button
     className={Cn.make([
       [%tw
-        "pt-3/4 relative opacity-75 group hover:opacity-100 transition-all duration-200"
+        "pt-11/12 md:pt-3/4 relative opacity-75 group hover:opacity-100 transition-all duration-200"
       ],
       textColor,
       backgroundColor,
@@ -41,7 +41,7 @@ let make = (~day, ~outOfMonth, ~onClick) => {
     onClick>
     <div
       className=[%tw
-        "absolute w-full h-full p-2 top-0 flex flex-col overflow-x-hidden"
+        "absolute w-full h-16 p-2 top-0 flex flex-col overflow-x-hidden"
       ]>
       <p className=[%tw "group-hover:font-bold"]>
         {Js.Date.getDate(day)->Js.Float.toString->React.string}

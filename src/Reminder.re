@@ -6,6 +6,21 @@ type t = {
   color: string,
 };
 
+type data = {
+  title: string,
+  datetime: Js.Date.t,
+  color: string
+};
+
+let fromData = (data) => {
+  {
+    title: data.title,
+    datetime: data.datetime,
+    color: data.color,
+    id: UUID.v4()
+  };
+};
+
 type action =
   | Add(t)
   | Remove(string)

@@ -1,5 +1,3 @@
-open Decco;
-
 type reminder = Reminder.t;
 
 [@decco]
@@ -16,11 +14,10 @@ let reducer = (state, action: Reminder.action) => {
       state->Belt.List.keep(el => Date.isSameDay(el.datetime, date))
     };
 
-  switch (newState->state_encode->stringFromJson) {
-  | Ok(reminders) =>
-    Dom.Storage.setItem("reminders", reminders, Dom.Storage.localStorage)
-  | Error(_) => ()
-  };
+  newState
+  ->state_encode
+  ->Js.Json.stringify
+  ->Dom.Storage.setItem("reminders", _, Dom.Storage.localStorage);
 
   newState;
 };

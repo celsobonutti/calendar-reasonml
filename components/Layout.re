@@ -9,7 +9,9 @@ let make = (~title, ~children) => {
     <main> children </main>
     <footer>
       <div className=[%tw "w-full flex justify-center"]>
-        <p className=[%tw "pb-4"]> "Made by Celso, 2020"->React.string </p>
+        <p className=[%tw "pb-4"]> "Made by"->React.string </p>
+        <a href="https://cel.so"> "Celso Bonutti"->React.string </a>
+        <p> ", 2020"->React.string </p>
       </div>
     </footer>
   </div>;

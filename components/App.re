@@ -21,15 +21,12 @@ let make = (props: props): React.element => {
 
   React.useEffect0(() => {
     let stringReminders =
-      Dom_storage.getItem("reminders", Dom.Storage.localStorage);
+      Dom_storage.getItem("reminders", Dom.Storage.localStorage)
+      ->Belt.Option.getWithDefault("[]");
 
-    switch (stringReminders) {
-    | None => setReminders(_ => Some([]))
-    | Some(reminders) =>
-      switch (reminders->Js.Json.parseExn->ReminderStore.state_decode) {
-      | Ok(value) => setReminders(_ => Some(value))
-      | _ => setReminders(_ => Some([]))
-      }
+    switch (stringReminders->Js.Json.parseExn->ReminderStore.state_decode) {
+    | Ok(value) => setReminders(_ => Some(value))
+    | _ => setReminders(_ => Some([]))
     };
 
     None;

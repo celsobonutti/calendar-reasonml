@@ -954,6 +954,36 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bit/feathericons.react-feather.arrow-left-circle@^1.1.6":
+  version "1.1.6"
+  resolved "https://node.bit.dev/feathericons.react-feather.arrow-left-circle/-/feathericons.react-feather.arrow-left-circle-1.1.6.tgz#26caaa095c72d567fc292fc902455431d2a40b72"
+  integrity sha1-JsqqCVxy1Wf8KS/JAkVUMdKkC3I=
+
+"@bit/feathericons.react-feather.arrow-right-circle@^1.1.6":
+  version "1.1.6"
+  resolved "https://node.bit.dev/feathericons.react-feather.arrow-right-circle/-/feathericons.react-feather.arrow-right-circle-1.1.6.tgz#f8f15c7218949ce439f25e75a3638ebc2b51c2de"
+  integrity sha1-+PFcchiUnOQ58l51o2OOvCtRwt4=
+
+"@bit/feathericons.react-feather.edit@^1.1.6":
+  version "1.1.6"
+  resolved "https://node.bit.dev/feathericons.react-feather.edit/-/feathericons.react-feather.edit-1.1.6.tgz#0f386b6d4604bae541529f850515ad588a956f2b"
+  integrity sha1-DzhrbUYEuuVBUp+FBRWtWIqVbys=
+
+"@bit/feathericons.react-feather.plus-circle@^1.1.6":
+  version "1.1.6"
+  resolved "https://node.bit.dev/feathericons.react-feather.plus-circle/-/feathericons.react-feather.plus-circle-1.1.6.tgz#c0081a9f4a708a22dbd2d46b01b25cf6a65b0b98"
+  integrity sha1-wAgan0pwiiLb0tRrAbJc9qZbC5g=
+
+"@bit/feathericons.react-feather.trash-2@^1.1.6":
+  version "1.1.6"
+  resolved "https://node.bit.dev/feathericons.react-feather.trash-2/-/feathericons.react-feather.trash-2-1.1.6.tgz#1233c8a2d17a3013a0bc3cc25e4385df415ae5e0"
+  integrity sha1-EjPIotF6MBOgvDzCXkOF30Fa5eA=
+
+"@bit/feathericons.react-feather.x-circle@^1.1.6":
+  version "1.1.6"
+  resolved "https://node.bit.dev/feathericons.react-feather.x-circle/-/feathericons.react-feather.x-circle-1.1.6.tgz#acd0165b553f74395ad9dbbb554f35571ba783d0"
+  integrity sha1-rNAWW1U/dDla2du7VU81Vxung9A=
+
 "@dylanirlbeck/tailwind-ppx@^0.7.6":
   version "0.7.6"
   resolved "https://registry.yarnpkg.com/@dylanirlbeck/tailwind-ppx/-/tailwind-ppx-0.7.6.tgz#0921284cb5157bf3f0985713ad383ba68be078da"
@@ -1584,6 +1614,20 @@ bs-platform@^7.3.2:
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-7.3.2.tgz#301f5c9b4e8cf5713cb60ca22e145e56e793affe"
   integrity sha512-seJL5g4anK9la4erv+B2o2sMHQCxDF6OCRl9en3hbaUos/S3JsusQ0sPp4ORsbx5eXfHLYBwPljwKXlgpXtsgQ==
+
+bs-reform@^9.8.0:
+  version "9.8.0"
+  resolved "https://registry.yarnpkg.com/bs-reform/-/bs-reform-9.8.0.tgz#5476abd57f4a56d91fdf38f0d711dfc1120bf027"
+  integrity sha512-APSYRdXcfjE9FY3xCu0xyea5SxasVqGb0hGmfOBkCDLoFn7wshVY8IVMO/erBvAjIRyy7Peqx72bOc9Y4oukTw==
+  dependencies:
+    reason-react-compat "^0.4.0"
+    reason-react-update "^1.0.0"
+    reschema "^1.3.1"
+
+bs-webapi@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/bs-webapi/-/bs-webapi-0.16.1.tgz#9fdb38dfc5d36b7f60b3ea4ad81f7c5583f824ca"
+  integrity sha512-Bp9JLbdc+0Yi0GCF3ojqxjoNDPNc31JweUPCUbrj6hNzeMqAO/MWIxNjwpvuIWJX0w5Opa91RjE+mAQUi1ioTg==
 
 buffer-from@^1.0.0, buffer-from@^1.1.1:
   version "1.1.1"
@@ -3389,6 +3433,11 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
+lenses-ppx@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/lenses-ppx/-/lenses-ppx-5.1.0.tgz#74882abc99f09fdb03daf33fd4ee79272424be7a"
+  integrity sha512-q+5yxYvvF8czdfRkBXYoqBeDUJkLQz6VUkPiFmUIdyMm6HWPvKnLJYPF1HRHeTp+KtkblBY5sHvmOWBfEpUGnw==
+
 leven@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"
@@ -4845,6 +4894,16 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
+reason-react-compat@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/reason-react-compat/-/reason-react-compat-0.4.0.tgz#9c6705f9bd67e7ff7219355f3a95fd67442b578d"
+  integrity sha512-Bwwgb6AHusLiRhdd0aupFAuMYaG3gnwR6iHYYlj9gfLD6Uxp53dtJIhS2ZMTEpCSU1JE2X0k7x3rru1IRdx9FQ==
+
+reason-react-update@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/reason-react-update/-/reason-react-update-1.0.0.tgz#c2e9f064fb665e24d35073a93f901c5792fdf36f"
+  integrity sha512-apsqywkgcEnkAc7V9fOs5ikEmufgYkxcLu5fqYWQ2Atb4UlYnoN7P92Xal3izReyqfk41G4zHlPHwJhoq0xwIA==
+
 reason-react@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.8.0.tgz#a55143f95a872596c92b54595e7904c03ee7c9db"
@@ -4949,6 +5008,11 @@ require-main-filename@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
   integrity sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
+
+reschema@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/reschema/-/reschema-1.3.1.tgz#61a754b1cc41bb050b4c398baa75caf02d9fa465"
+  integrity sha512-/k370hEgJDUmJlsuNBij0VZWL+btIQEcXkdh9rCzpLufesxW+r9ll69okz2z77q4PO3dXyq6h21yyb+Jzp9/Iw==
 
 resolve-from@^3.0.0:
   version "3.0.0"
@@ -5859,6 +5923,11 @@ util@^0.11.0:
   integrity sha512-HShAsny+zS2TZfaXxD9tYj4HQGlBezXZMZuM/S5PKLLoZkShZiGk9o5CzukI1LVHZvjdvZ2Sj1aW/Ndn2NB/HQ==
   dependencies:
     inherits "2.0.3"
+
+uuid@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.2.0.tgz#cb10dd6b118e2dada7d0cd9730ba7417c93d920e"
+  integrity sha512-CYpGiFTUrmI6OBMkAdjSDM0k5h8SkkiTP4WAjQgDgNB1S3Ou9VBEvr6q0Kv2H1mMk7IWfxYGpMH5sd5AvcIV2Q==
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"

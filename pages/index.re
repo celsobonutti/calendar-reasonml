@@ -11,42 +11,58 @@ let make = () => {
   let (year, setYear) =
     React.useState(() => Js.Date.getFullYear(today)->int_of_float);
 
-  let (modalElement, setModalElement) = React.useState(() => Nothing);
+  let (modal, setModal) = React.useState(() => Nothing);
 
-  let (reminders, _) = ReminderContext.useReminders();
+  let (reminders, dispatch) = ReminderContext.useReminders();
 
   let increaseMonth = () => {
-    setMonth(month =>
-      if (month == 11) {
+    setMonth(currentMonth =>
+      if (currentMonth == 11) {
         setYear(year => year + 1);
         0;
       } else {
-        month + 1;
+        currentMonth + 1;
       }
     );
   };
 
   let decreaseMonth = () => {
-    setMonth(month =>
-      if (month == 0) {
+    setMonth(currentMonth =>
+      if (currentMonth == 0) {
         setYear(year => year - 1);
         11;
       } else {
-        month - 1;
+        currentMonth - 1;
       }
     );
   };
 
-  <>
-    {switch (modalElement) {
+  <React.Fragment>
+    {switch (modal) {
      | Nothing => React.null
-     | Date(date) => <Modal> <DaySummary date reminders /> </Modal>
-     | Form => <Modal> <h1> "Form"->React.string </h1> </Modal>
+     | Date(date) =>
+       let dateReminders =
+         reminders
+         ->Belt.List.keep(reminder => Date.isSameDay(reminder.datetime, date))
+         ->Belt.List.sort((reminderA, reminderB) =>
+             Date.isBefore(reminderA.datetime, reminderB.datetime) ? (-1) : 1
+           );
+       <Modal onClosed={_ => setModal(_ => Nothing)}>
+         <DaySummary date reminders=dateReminders />
+       </Modal>;
+     | Form =>
+       <Modal onClosed={_ => setModal(_ => Nothing)}>
+         <Form onSubmit={data => {
+           let reminder = Reminder.fromData(data);
+           dispatch(Add(reminder));
+           setModal(_ => Nothing);
+         }}/>
+       </Modal>
      }}
     <Layout title="Calendar 2020">
       <div
         className=[%tw
-          "w-full flex flex-col justify-start items-center sm:p-8 md:px-16 md:py-4"
+          "w-full flex flex-col justify-start items-center sm:p-8 md:px-16 md:py-4 relative"
         ]>
         <Selector
           month
@@ -54,14 +70,24 @@ let make = () => {
           onIncrease=increaseMonth
           onDecrease=decreaseMonth
         />
-        <Calendar
-          month
-          year
-          onDateClicked={date => setModalElement(_ => Date(date))}
-        />
+        <button
+          className=[%tw "mb-4 flex items-center gap-2"]
+          onClick={_ => setModal(_ => Form)}>
+          <Feather.PlusCircle size=30 color="black" />
+          <span className=[%tw "font-semibold"]>
+            "Add Reminder"->React.string
+          </span>
+        </button>
+        <div className=[%tw "px-2 w-full flex justify-center"]>
+          <Calendar
+            month
+            year
+            onDateClicked={date => setModal(_ => Date(date))}
+          />
+        </div>
       </div>
     </Layout>
-  </>;
+  </React.Fragment>;
 };
 
 let default = make;

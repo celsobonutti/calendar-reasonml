@@ -22,8 +22,10 @@ let getMonthName = month => {
 
 [@react.component]
 let make = (~month, ~year, ~onIncrease, ~onDecrease) => {
-  <div className=[%tw "flex flex-row w-64 justify-between items-center m-4"]>
-    <button onClick={_ => onDecrease()}> "Decrease"->React.string </button>
+  <div className=[%tw "flex flex-row w-56 justify-between items-center m-4"]>
+    <button type_="button" onClick={_ => onDecrease()}>
+      <Feather.ArrowLeft size=30 color="black" />
+    </button>
     <div className=[%tw "flex flex-col justify-between items-center"]>
       <h2 className=[%tw "text-gray-800 font-semibold text-lg"]>
         {month->getMonthName->React.string}
@@ -32,6 +34,8 @@ let make = (~month, ~year, ~onIncrease, ~onDecrease) => {
         {year->string_of_int->React.string}
       </h3>
     </div>
-    <button onClick={_ => onIncrease()}> "Increase"->React.string </button>
+    <button type_="button" onClick={_ => onIncrease()}>
+      <Feather.ArrowRight size=30 color="black" />
+    </button>
   </div>;
 };
